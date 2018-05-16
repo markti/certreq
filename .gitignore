@@ -29,3 +29,6 @@
 /SccmRelay/SccmRelay.WindowsService/obj/Debug
 /SccmRelay/SccmRelayAgent/bin/Release
 /SccmRelay/SccmRelayAgent/obj
+/SccmRelay/SccmRelay.ConsoleApp/bin/Release
+/SccmRelay/SccmRelay.WindowsService/bin/Release
+/SccmRelay/SccmRelay.WindowsService/obj/Release
