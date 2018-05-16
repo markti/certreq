@@ -26,9 +26,8 @@ namespace SccmRelay.WindowsService
 
         protected override void OnStart(string[] args)
         {
-            //sh = new ServiceHost(typeof(CertificateGenerator));
-            //sh = new ServiceHost(null);
-
+            sh = new ServiceHost(typeof(CertificateGenerator));
+            
             var localAddress = ConfigurationManager.AppSettings["LocalAddress"];
             var serviceNamespace = ConfigurationManager.AppSettings["ServiceNamespace"];
             var serviceKey = ConfigurationManager.AppSettings["ServiceKey"];
