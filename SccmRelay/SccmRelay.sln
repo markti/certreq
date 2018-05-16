@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SccmRelay", "SccmRelay\SccmRelay.csproj", "{D04B358D-C3DC-4A53-BB04-6F58142E0473}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SccmRelay.Interface", "SccmRelay.Interface\SccmRelay.Interface.csproj", "{334319F5-A8E3-403E-A33F-AD33C5949F12}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SccmRelay.Tests", "SccmRelay.Tests\SccmRelay.Tests.csproj", "{E8C3A79D-FD70-479B-9CD6-1698E10DEEA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SccmRelayClient", "..\SccmRelayClient\SccmRelayClient\SccmRelayClient.csproj", "{7D37D486-8116-44B0-B9F1-540D7DBFAC70}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Agent", "Agent", "{52170ECC-E8DB-4EA7-93CB-E8B74BC79254}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{DEC3C3D9-8A99-4543-B2DF-084A8DDB2B4E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{17BD6D7E-A3E1-4032-B456-F2AECA3D17E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SccmRelayWeb", "..\SccmRelayWeb\SccmRelayWeb\SccmRelayWeb.csproj", "{49CBF790-AD4F-49ED-B0C5-9CD974A50A6B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D04B358D-C3DC-4A53-BB04-6F58142E0473}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D04B358D-C3DC-4A53-BB04-6F58142E0473}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D04B358D-C3DC-4A53-BB04-6F58142E0473}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D04B358D-C3DC-4A53-BB04-6F58142E0473}.Release|Any CPU.Build.0 = Release|Any CPU
+		{334319F5-A8E3-403E-A33F-AD33C5949F12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{334319F5-A8E3-403E-A33F-AD33C5949F12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{334319F5-A8E3-403E-A33F-AD33C5949F12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{334319F5-A8E3-403E-A33F-AD33C5949F12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8C3A79D-FD70-479B-9CD6-1698E10DEEA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8C3A79D-FD70-479B-9CD6-1698E10DEEA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8C3A79D-FD70-479B-9CD6-1698E10DEEA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8C3A79D-FD70-479B-9CD6-1698E10DEEA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D37D486-8116-44B0-B9F1-540D7DBFAC70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D37D486-8116-44B0-B9F1-540D7DBFAC70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D37D486-8116-44B0-B9F1-540D7DBFAC70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D37D486-8116-44B0-B9F1-540D7DBFAC70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49CBF790-AD4F-49ED-B0C5-9CD974A50A6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49CBF790-AD4F-49ED-B0C5-9CD974A50A6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49CBF790-AD4F-49ED-B0C5-9CD974A50A6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49CBF790-AD4F-49ED-B0C5-9CD974A50A6B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D04B358D-C3DC-4A53-BB04-6F58142E0473} = {52170ECC-E8DB-4EA7-93CB-E8B74BC79254}
+		{334319F5-A8E3-403E-A33F-AD33C5949F12} = {52170ECC-E8DB-4EA7-93CB-E8B74BC79254}
+		{E8C3A79D-FD70-479B-9CD6-1698E10DEEA6} = {52170ECC-E8DB-4EA7-93CB-E8B74BC79254}
+		{7D37D486-8116-44B0-B9F1-540D7DBFAC70} = {DEC3C3D9-8A99-4543-B2DF-084A8DDB2B4E}
+		{49CBF790-AD4F-49ED-B0C5-9CD974A50A6B} = {17BD6D7E-A3E1-4032-B456-F2AECA3D17E6}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E04EAD1A-C25C-468E-ADE3-7F5F3BD8E286}
+	EndGlobalSection
+EndGlobal

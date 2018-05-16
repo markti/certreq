@@ -3,3 +3,23 @@
 ################################################################################
 
 /SccmRelay/.vs/SccmRelay
+/SccmRelay/packages
+/SccmRelay/SccmRelay/bin
+/SccmRelay/SccmRelay/obj
+/SccmRelay/SccmRelay.Interface/bin
+/SccmRelay/SccmRelay.Interface/obj
+/SccmRelay/SccmRelay.Tests/bin
+/SccmRelay/SccmRelay.Tests/obj
+/SccmRelayClient/.vs/SccmRelayClient
+/SccmRelayClient/packages/WindowsAzure.ServiceBus.4.1.9
+/SccmRelayClient/SccmRelayClient/bin/Debug
+/SccmRelayClient/SccmRelayClient/obj
+/SccmRelayWeb/.vs
+/SccmRelayWeb/packages
+/SccmRelayWeb/SccmRelayWeb/bin
+/SccmRelayWeb/SccmRelayWeb/obj
+/SccmRelayWeb/SccmRelayWeb/Properties/PublishProfiles
+/SccmRelayWeb/SccmRelay.Interface.dll
+/.vs
+/SccmRelay/.vs/config
+/SccmRelayClient/SccmRelayClient/bin/Release
