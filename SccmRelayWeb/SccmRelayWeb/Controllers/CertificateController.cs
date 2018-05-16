@@ -22,14 +22,30 @@ using System.Net.Http.Headers;
 
 namespace SccmRelayWeb.Controllers
 {
-    public class ValuesController : ApiController
+    public class CertificateController : ApiController
     {
+        public class CertificateRequest
+        {
+            public string HostName { get; set; }
+        }
+
         // GET api/values/5
         [SwaggerOperation("GetByHostname")]
         [SwaggerResponse(HttpStatusCode.OK)]
         [SwaggerResponse(HttpStatusCode.NotFound)]
-        public HttpResponseMessage Get(string hostName)
+        [HttpPost]
+        public HttpResponseMessage Post([FromBody]CertificateRequest request)
         {
+            HttpResponseMessage result = null;
+
+            if(request == null || string.IsNullOrEmpty(request.HostName))
+            {
+                result = Request.CreateResponse(HttpStatusCode.InternalServerError);
+                return result;
+            }
+
+            var hostName = request.HostName;
+
             byte[] data = null;
 
             var serviceNamespace = ConfigurationManager.AppSettings["ServiceNamespace"];
@@ -50,13 +66,13 @@ namespace SccmRelayWeb.Controllers
             {
                 data = ch.GetCertificate(hostName);
             }
-            HttpResponseMessage response = new HttpResponseMessage(HttpStatusCode.OK);
-            response.Content = new StreamContent(new MemoryStream(data));
-            response.Content.Headers.ContentDisposition = new System.Net.Http.Headers.ContentDispositionHeaderValue("attachment");
-            response.Content.Headers.ContentDisposition.FileName = "client.pfx";
-            response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/pdf");
+            result = Request.CreateResponse(HttpStatusCode.OK);
+            result.Content = new StreamContent(new MemoryStream(data));
+            result.Content.Headers.ContentDisposition = new System.Net.Http.Headers.ContentDispositionHeaderValue("attachment");
+            result.Content.Headers.ContentDisposition.FileName = "client.pfx";
+            result.Content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
 
-            return response;
+            return result;
         }
     }
 }

@@ -19,6 +19,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{17BD6D7E-A3E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SccmRelayWeb", "..\SccmRelayWeb\SccmRelayWeb\SccmRelayWeb.csproj", "{49CBF790-AD4F-49ED-B0C5-9CD974A50A6B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebClient", "WebClient", "{2FBD27CB-06BB-4995-9FAC-AC42B044AA9D}"
+	ProjectSection(SolutionItems) = preProject
+		..\SccmRelayWebClient\A_JustDownloadCertificate.bat = ..\SccmRelayWebClient\A_JustDownloadCertificate.bat
+		..\SccmRelayWebClient\B_DownloadAndRegisterCertificate.bat = ..\SccmRelayWebClient\B_DownloadAndRegisterCertificate.bat
+		..\SccmRelayWebClient\DownloadCertificate.ps1 = ..\SccmRelayWebClient\DownloadCertificate.ps1
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
