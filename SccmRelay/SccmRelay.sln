@@ -26,6 +26,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebClient", "WebClient", "{
 		..\SccmRelayWebClient\DownloadCertificate.ps1 = ..\SccmRelayWebClient\DownloadCertificate.ps1
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External", "External", "{2C20E531-CF9F-4E8F-9E5B-3529CBBAC10A}"
+	ProjectSection(SolutionItems) = preProject
+		lib\Request-Certificate.ps1 = lib\Request-Certificate.ps1
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -62,6 +67,7 @@ Global
 		{E8C3A79D-FD70-479B-9CD6-1698E10DEEA6} = {52170ECC-E8DB-4EA7-93CB-E8B74BC79254}
 		{7D37D486-8116-44B0-B9F1-540D7DBFAC70} = {DEC3C3D9-8A99-4543-B2DF-084A8DDB2B4E}
 		{49CBF790-AD4F-49ED-B0C5-9CD974A50A6B} = {17BD6D7E-A3E1-4032-B456-F2AECA3D17E6}
+		{2C20E531-CF9F-4E8F-9E5B-3529CBBAC10A} = {52170ECC-E8DB-4EA7-93CB-E8B74BC79254}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E04EAD1A-C25C-468E-ADE3-7F5F3BD8E286}
