@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("SccmRelay")]
+[assembly: AssemblyTitle("SccmRelay.ConsoleApp")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("SccmRelay")]
+[assembly: AssemblyProduct("SccmRelay.ConsoleApp")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("2a75d6ff-3d6a-429c-9a6d-51bf53124d61")]
+[assembly: Guid("8fd0cd76-d6c7-4052-8259-2fee4121da5a")]
 
 // Version information for an assembly consists of the following four values:
 //

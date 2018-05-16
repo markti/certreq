@@ -23,3 +23,9 @@
 /.vs
 /SccmRelay/.vs/config
 /SccmRelayClient/SccmRelayClient/bin/Release
+/SccmRelay/SccmRelay.ConsoleApp/bin/Debug
+/SccmRelay/SccmRelay.ConsoleApp/obj
+/SccmRelay/SccmRelay.WindowsService/bin/Debug
+/SccmRelay/SccmRelay.WindowsService/obj/Debug
+/SccmRelay/SccmRelayAgent/bin/Release
+/SccmRelay/SccmRelayAgent/obj
