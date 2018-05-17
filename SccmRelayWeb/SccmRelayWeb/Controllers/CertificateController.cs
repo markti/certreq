@@ -27,6 +27,7 @@ namespace SccmRelayWeb.Controllers
         public class CertificateRequest
         {
             public string HostName { get; set; }
+            public bool GenerateRandom { get; set; }
         }
 
         // GET api/values/5
@@ -38,13 +39,23 @@ namespace SccmRelayWeb.Controllers
         {
             HttpResponseMessage result = null;
 
-            if(request == null || string.IsNullOrEmpty(request.HostName))
+            if(request == null)
             {
                 result = Request.CreateResponse(HttpStatusCode.InternalServerError);
                 return result;
             }
 
-            var hostName = request.HostName;
+            var hostName = "client-endpoint";
+
+            if (!string.IsNullOrEmpty(request.HostName))
+            {
+                hostName = request.HostName;
+            }
+
+            if(request.GenerateRandom)
+            {
+                hostName = "client-" + Guid.NewGuid().ToString().Replace("-", "");
+            }
 
             byte[] data = null;
 

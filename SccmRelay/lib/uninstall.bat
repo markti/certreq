@@ -1,0 +1,1 @@
+Installutil /u SccmRelay.WindowsService.exe
