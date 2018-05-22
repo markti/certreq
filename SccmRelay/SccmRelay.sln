@@ -20,6 +20,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebClient", "WebClient", "{
 		..\SccmRelayWebClient\A_JustDownloadCertificate.bat = ..\SccmRelayWebClient\A_JustDownloadCertificate.bat
 		..\SccmRelayWebClient\B_DownloadAndRegisterCertificate.bat = ..\SccmRelayWebClient\B_DownloadAndRegisterCertificate.bat
 		..\SccmRelayWebClient\DownloadCertificate.ps1 = ..\SccmRelayWebClient\DownloadCertificate.ps1
+		..\SccmRelayWebClient\DownloadCertificate_Scenario2.ps1 = ..\SccmRelayWebClient\DownloadCertificate_Scenario2.ps1
+		..\SccmRelayWebClient\DownloadCertificate_Scenario3.ps1 = ..\SccmRelayWebClient\DownloadCertificate_Scenario3.ps1
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External", "External", "{2C20E531-CF9F-4E8F-9E5B-3529CBBAC10A}"
