@@ -4,19 +4,13 @@ using System.Text;
 using System.Net;
 using System.IO;
 
-namespace SccmRelayWebClient
+namespace ConsoleApp1
 {
-
-    /// <summary>
-    /// this client is for machines that do not have powershell 3.0
-    /// powershell 3.0 introduced the Invoke-Webrequest command
-    /// powershell 3.0 requires full version of .net framework 4.0
-    /// </summary>
     class Program
     {
         static void Main(string[] args)
         {
-            if(args.Length < 1)
+            if (args.Length < 1)
             {
                 Console.WriteLine("error");
             }
@@ -28,12 +22,12 @@ namespace SccmRelayWebClient
                 var machineName = Environment.MachineName;
 
                 var postUri = new Uri(hostName + "/api/Certificate");
-                
+
                 var request = (HttpWebRequest)WebRequest.Create(postUri);
 
                 var postData = "{ 'hostName': '" + machineName + "' }";
                 var data = Encoding.ASCII.GetBytes(postData);
-                
+
                 request.Method = "POST";
                 request.ContentType = "application/json";
                 request.ContentLength = data.Length;

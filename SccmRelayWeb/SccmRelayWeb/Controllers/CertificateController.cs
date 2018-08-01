@@ -28,6 +28,7 @@ namespace SccmRelayWeb.Controllers
         {
             public string HostName { get; set; }
             public bool GenerateRandom { get; set; }
+            public string SecretKey { get; set; }
         }
 
         // GET api/values/5
@@ -38,8 +39,17 @@ namespace SccmRelayWeb.Controllers
         public HttpResponseMessage Post([FromBody]CertificateRequest request)
         {
             HttpResponseMessage result = null;
+            
 
-            if(request == null)
+            if (request == null)
+            {
+                result = Request.CreateResponse(HttpStatusCode.InternalServerError);
+                return result;
+            }
+
+            var actualSecretKey = ConfigurationManager.AppSettings["ClientSecretKey"];
+
+            if(string.IsNullOrEmpty(request.SecretKey) || !request.SecretKey.Equals(actualSecretKey))
             {
                 result = Request.CreateResponse(HttpStatusCode.InternalServerError);
                 return result;

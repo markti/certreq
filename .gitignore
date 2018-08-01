@@ -35,3 +35,5 @@
 /SccmRelay/lib/SccmRelay.WindowsService_v1_1.zip
 /SccmRelay/SccmRelayWebClient/bin/Debug
 /SccmRelay/SccmRelayWebClient/obj
+/SccmRelay/ConsoleApp1/bin/Debug
+/SccmRelay/ConsoleApp1/obj/Debug

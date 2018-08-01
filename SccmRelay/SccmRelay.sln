@@ -39,6 +39,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hosts", "Hosts", "{31201265
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SccmRelayWebClient", "SccmRelayWebClient\SccmRelayWebClient.csproj", "{1628643C-1CC5-4E5A-BF1A-7C3660E1979E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{6DF4C472-BDEB-42C7-89C7-907C110416AF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +75,10 @@ Global
 		{1628643C-1CC5-4E5A-BF1A-7C3660E1979E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1628643C-1CC5-4E5A-BF1A-7C3660E1979E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1628643C-1CC5-4E5A-BF1A-7C3660E1979E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DF4C472-BDEB-42C7-89C7-907C110416AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DF4C472-BDEB-42C7-89C7-907C110416AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DF4C472-BDEB-42C7-89C7-907C110416AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DF4C472-BDEB-42C7-89C7-907C110416AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -87,6 +93,7 @@ Global
 		{7DCF5D85-494A-4346-A0D2-37CB03C8F970} = {31201265-7FFB-4F30-8D18-405D998C0D60}
 		{31201265-7FFB-4F30-8D18-405D998C0D60} = {52170ECC-E8DB-4EA7-93CB-E8B74BC79254}
 		{1628643C-1CC5-4E5A-BF1A-7C3660E1979E} = {2FBD27CB-06BB-4995-9FAC-AC42B044AA9D}
+		{6DF4C472-BDEB-42C7-89C7-907C110416AF} = {2FBD27CB-06BB-4995-9FAC-AC42B044AA9D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E04EAD1A-C25C-468E-ADE3-7F5F3BD8E286}
