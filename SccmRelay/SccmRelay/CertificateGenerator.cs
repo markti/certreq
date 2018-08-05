@@ -12,6 +12,26 @@ namespace SccmRelay
 {
     public class CertificateGenerator : ICertificateGenerator
     {
+        private void WriteToLog(string message)
+        {
+            // write to console
+            Console.WriteLine(message);
+            // write to event log
+            WriteToEventLog(message);
+        }
+        private void WriteToEventLog(string message)
+        {
+            string cs = "CertificateGenerator";
+            EventLog elog = new EventLog();
+            if (!EventLog.SourceExists(cs))
+            {
+                EventLog.CreateEventSource(cs, "Application");
+            }                
+            elog.Source = cs;
+            elog.EnableRaisingEvents = true;
+            elog.WriteEntry(message);
+        }
+
         public byte[] GetCertificate(string hostname)
         {
             byte[] allBytes = null;
@@ -30,16 +50,15 @@ namespace SccmRelay
             {
                 // C:\CERTREQ\{GUID}
                 var newDirectory = rootDirectory.CreateSubdirectory(Guid.NewGuid().ToString());
-                
-                Console.WriteLine("Creating new sub-directory: " + newDirectory.FullName);
 
-                var newPowerShellExe = newDirectory.FullName + "\\powershell.exe";
+                WriteToLog("Creating new sub-directory: " + newDirectory.FullName);
+                
                 var newPowerShellFilename = newDirectory.FullName + "\\Request-Certificate.ps1";
 
                 // C:\CERTREQ\{GUID}\Request.Certificate.ps1
                 var newPowershellFile = powershellFile.CopyTo(newPowerShellFilename);
 
-                Console.WriteLine("Copied PowerShell File: " + newPowershellFile.FullName);
+                WriteToLog("Copied PowerShell File: " + newPowershellFile.FullName);
                 
                 StringBuilder commandBuilder = new StringBuilder();
                 commandBuilder.Append("-ExecutionPolicy bypass");
@@ -59,43 +78,42 @@ namespace SccmRelay
                 commandBuilder.Append(caServerName);
                 commandBuilder.Append(" ");
                 commandBuilder.Append("-Export");
-
-                var powershellPath = "";
-
+                
                 ProcessStartInfo startInfo = new ProcessStartInfo();
-                startInfo.FileName = newPowerShellExe;
+                startInfo.FileName = "powershell.exe";
                 startInfo.Arguments = commandBuilder.ToString();
                 startInfo.RedirectStandardOutput = true;
                 startInfo.RedirectStandardError = true;
                 startInfo.UseShellExecute = false;
                 startInfo.CreateNoWindow = true;
+                startInfo.WorkingDirectory = newDirectory.FullName;
 
-                Console.WriteLine("PowerShell Arguments:" + startInfo.Arguments);
+                WriteToLog("PowerShell Arguments:" + startInfo.Arguments);
                 Process process = new Process();
                 process.StartInfo = startInfo;
                 process.Start();
 
                 string output = process.StandardOutput.ReadToEnd();
 
-                Console.WriteLine(output);
+                WriteToLog(output);
 
                 string errors = process.StandardError.ReadToEnd();
 
-                Console.WriteLine(errors);
+                WriteToLog(errors);
 
                 // C:\CERTREQ\{GUID}\{hostname}.pfx
                 var certificatePath = newDirectory.FullName + "\\" + hostname + ".pfx";
                 //var certificatePath = "./" + hostname + ".pfx";
 
-                Console.WriteLine("Converting Certificate File to Bytes:" + certificatePath);
-                
-                Console.WriteLine("About to read certificate here: " + certificatePath);
+                WriteToLog("Converting Certificate File to Bytes:" + certificatePath);
+
+                WriteToLog("About to read certificate here: " + certificatePath);
                 allBytes = File.ReadAllBytes(certificatePath); 
 
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                WriteToLog(ex.ToString());
             }
             return allBytes;
         }
