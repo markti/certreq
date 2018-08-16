@@ -8,6 +8,15 @@ namespace SccmRelay.Tests
     public class UnitTest1
     {
         [TestMethod]
+        public void TestDirectoryCreation()
+        {
+            var certGen = new CertificateGenerator();
+
+            var result = certGen.GetCertificate("foo");
+        }
+
+
+        //[TestMethod]
         public void TestMethod1()
         {
             ProcessStartInfo startInfo = new ProcessStartInfo();
