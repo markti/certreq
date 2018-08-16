@@ -19,16 +19,34 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http.Headers;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Table;
 
 namespace SccmRelayWeb.Controllers
 {
     public class CertificateController : ApiController
     {
+        public class LogCertificateReqRequest
+        {
+            public string HostName { get; set; }
+            public string ClientSecret { get; set; }
+        }
+        public class LogCertificateAckRequest
+        {
+            public string HostName { get; set; }
+            public string ClientSecret { get; set; }
+        }
+        public class LogErrorRequest
+        {
+            public string HostName { get; set; }
+            public string ClientSecret { get; set; }
+        }
+
         public class CertificateRequest
         {
             public string HostName { get; set; }
             public bool GenerateRandom { get; set; }
-            public string SecretKey { get; set; }
+            public string ClientSecret { get; set; }
         }
 
         // GET api/values/5
@@ -49,7 +67,7 @@ namespace SccmRelayWeb.Controllers
 
             var actualSecretKey = ConfigurationManager.AppSettings["ClientSecretKey"];
 
-            if(string.IsNullOrEmpty(request.SecretKey) || !request.SecretKey.Equals(actualSecretKey))
+            if(string.IsNullOrEmpty(request.ClientSecret) || !request.ClientSecret.Equals(actualSecretKey))
             {
                 result = Request.CreateResponse(HttpStatusCode.InternalServerError);
                 return result;
@@ -92,6 +110,108 @@ namespace SccmRelayWeb.Controllers
             result.Content.Headers.ContentDisposition = new System.Net.Http.Headers.ContentDispositionHeaderValue("attachment");
             result.Content.Headers.ContentDisposition.FileName = "client.pfx";
             result.Content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
+
+            return result;
+        }
+
+
+
+        // GET api/values/5
+        [SwaggerOperation("LogError")]
+        [SwaggerResponse(HttpStatusCode.OK)]
+        [SwaggerResponse(HttpStatusCode.NotFound)]
+        [HttpPost]
+        [Route("/api/Log/Error")]
+        public HttpResponseMessage LogError([FromBody]LogErrorRequest request)
+        {
+            HttpResponseMessage result = null;
+
+
+            if (request == null)
+            {
+                result = Request.CreateResponse(HttpStatusCode.InternalServerError);
+                return result;
+            }
+
+            var actualSecretKey = ConfigurationManager.AppSettings["ClientSecretKey"];
+
+            if (string.IsNullOrEmpty(request.ClientSecret) || !request.ClientSecret.Equals(actualSecretKey))
+            {
+                result = Request.CreateResponse(HttpStatusCode.InternalServerError);
+                return result;
+            }
+
+            CloudStorageAccount storageAccount = new CloudStorageAccount(
+        new Microsoft.WindowsAzure.Storage.Auth.StorageCredentials(
+            "<name>", "<account-key>"), true);
+
+            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+
+            return result;
+        }
+        // GET api/values/5
+        [SwaggerOperation("LogError")]
+        [SwaggerResponse(HttpStatusCode.OK)]
+        [SwaggerResponse(HttpStatusCode.NotFound)]
+        [HttpPost]
+        [Route("/api/Log/Req")]
+        public HttpResponseMessage LogCertReq([FromBody]LogErrorRequest request)
+        {
+            HttpResponseMessage result = null;
+
+
+            if (request == null)
+            {
+                result = Request.CreateResponse(HttpStatusCode.InternalServerError);
+                return result;
+            }
+
+            var actualSecretKey = ConfigurationManager.AppSettings["ClientSecretKey"];
+
+            if (string.IsNullOrEmpty(request.ClientSecret) || !request.ClientSecret.Equals(actualSecretKey))
+            {
+                result = Request.CreateResponse(HttpStatusCode.InternalServerError);
+                return result;
+            }
+
+            CloudStorageAccount storageAccount = new CloudStorageAccount(
+        new Microsoft.WindowsAzure.Storage.Auth.StorageCredentials(
+            "<name>", "<account-key>"), true);
+
+            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+
+            return result;
+        }
+        // GET api/values/5
+        [SwaggerOperation("LogError")]
+        [SwaggerResponse(HttpStatusCode.OK)]
+        [SwaggerResponse(HttpStatusCode.NotFound)]
+        [HttpPost]
+        [Route("/api/Log/Ack")]
+        public HttpResponseMessage LogCertAck([FromBody]LogErrorRequest request)
+        {
+            HttpResponseMessage result = null;
+
+
+            if (request == null)
+            {
+                result = Request.CreateResponse(HttpStatusCode.InternalServerError);
+                return result;
+            }
+
+            var actualSecretKey = ConfigurationManager.AppSettings["ClientSecretKey"];
+
+            if (string.IsNullOrEmpty(request.ClientSecret) || !request.ClientSecret.Equals(actualSecretKey))
+            {
+                result = Request.CreateResponse(HttpStatusCode.InternalServerError);
+                return result;
+            }
+
+            CloudStorageAccount storageAccount = new CloudStorageAccount(
+        new Microsoft.WindowsAzure.Storage.Auth.StorageCredentials(
+            "<name>", "<account-key>"), true);
+
+            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
             return result;
         }
